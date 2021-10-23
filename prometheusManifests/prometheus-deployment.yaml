@@ -17,20 +17,20 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus
-          args:
-            - '--storage.tsdb.retention.time=12h'
+          image: prom/prometheus #deploys the latest prometheus image
+          args: 
+            - '--storage.tsdb.retention.time=12h' #may have to change this
             - '--config.file=/etc/prometheus/prometheus.yml'
             - '--storage.tsdb.path=/prometheus/'
           ports:
             - containerPort: 9090
-          resources:
-            requests:
-              cpu: 500m
-              memory: 500M
-            limits:
-              cpu: 1
-              memory: 1Gi
+          # resources:
+          #   requests:
+          #     cpu: 500m
+          #     memory: 500M
+          #   limits:
+          #     cpu: 1
+          #     memory: 1Gi
           volumeMounts:
             - name: prometheus-config-volume
               mountPath: /etc/prometheus/

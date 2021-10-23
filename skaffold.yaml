@@ -6,6 +6,7 @@ deploy:
       - ./infra/k8s/*
       - ./prometheusManifests/* #added for Prometheus
       - ./kubeStateManifests/* #added for Kube State Metrics
+      - ./nodeExporterManifests/* #added for nodeExporter
 build:
   local:
     push: false
@@ -16,7 +17,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.js"
+          - src: 'src/**/*.js'
             dest: .
     - image: cygnetops/comments-84
       context: comments
@@ -24,7 +25,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "*.js"
+          - src: '*.js'
             dest: .
     - image: cygnetops/event-bus-85
       context: event-bus
@@ -32,7 +33,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "*.js"
+          - src: '*.js'
             dest: .
     - image: cygnetops/moderation-84
       context: moderation
@@ -40,7 +41,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "*.js"
+          - src: '*.js'
             dest: .
     - image: cygnetops/posts-95
       context: posts
@@ -48,7 +49,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "*.js"
+          - src: '*.js'
             dest: .
     - image: cygnetops/query-84
       context: query
@@ -56,5 +57,5 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "*.js"
+          - src: '*.js'
             dest: .
